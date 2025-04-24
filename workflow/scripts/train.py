@@ -16,7 +16,10 @@ def train_model(X_train, y_train):
     return model
 
 def main():
-    data_path = '../data/dna.csv'
+
+    data_path = snakemake.input[0]
+    output_path = snakemake.output[0]
+    output_path_data = snakemake.output[1]
     data = pd.read_csv(data_path)
 
     X_train, X_test, y_train, y_test = split_data(data)
@@ -24,8 +27,8 @@ def main():
     model = train_model(X_train, y_train)
 
     # save the model and test set
-    joblib.dump(model, 'model.pkl')
-    joblib.dump((X_test, y_test), 'test_data.pkl')
+    joblib.dump(model, output_path)
+    joblib.dump((X_test, y_test), output_path_data)
     print("Model and test data saved.")
 
 if __name__ == "__main__":

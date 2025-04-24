@@ -1,0 +1,1 @@
+{"record_format_version": 6, "code": null, "rule": "train_model", "input": ["data/dna.csv"], "log": [], "params": [], "shellcmd": null, "incomplete": false, "starttime": 1745516530.744597, "endtime": 1745516549.8466158, "job_hash": 172453051992, "conda_env": null, "software_stack_hash": "d41d8cd98f00b204e9800998ecf8427e", "container_img_url": null, "input_checksums": {}}

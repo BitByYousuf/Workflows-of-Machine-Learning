@@ -9,14 +9,15 @@ def evaluate_model(model, X_test, y_test):
     recall = recall_score(y_test, y_pred, average='macro')
     f1 = f1_score(y_test, y_pred, average='macro')
 
-    print(f"Accuracy : {accuracy:.4f}")
-    print(f"Precision: {precision:.4f}")
-    print(f"Recall   : {recall:.4f}")
-    print(f"F1 Score : {f1:.4f}")
+    with open(snakemake.output[0], "w") as f:
+        f.write(f"Accuracy: {accuracy:.4f}\n")
+        f.write(f"Precision: {precision:.4f}\n")
+        f.write(f"Recall: {recall:.4f}\n")
+        f.write(f"f1 Score: {f1:.4f}\n")
 
 def main():
-    model = joblib.load('model.pkl')
-    X_test, y_test = joblib.load('test_data.pkl')
+    model = joblib.load(snakemake.input.model)
+    X_test, y_test = joblib.load(snakemake.input.test_data)
 
     evaluate_model(model, X_test, y_test)
 
