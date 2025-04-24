@@ -1,4 +1,5 @@
 import pandas as pd
+from scipy.io import arff
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingClassifier
@@ -20,7 +21,10 @@ def main():
     data_path = snakemake.input[0]
     output_path = snakemake.output[0]
     output_path_data = snakemake.output[1]
-    data = pd.read_csv(data_path)
+
+    data, meta = arff.loadarff(data_path)
+
+    data = pd.DataFrame(data)
 
     X_train, X_test, y_train, y_test = split_data(data)
 
