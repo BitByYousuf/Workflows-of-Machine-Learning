@@ -164,3 +164,4 @@ predictions/
 data/
 dataset/
 /data
+.snakemake/
