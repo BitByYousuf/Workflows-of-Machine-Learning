@@ -157,6 +157,7 @@ svn/
 *.rar
 *.zip
 *.whl
+*.pkl
 
 evaluations/
 predictions/
