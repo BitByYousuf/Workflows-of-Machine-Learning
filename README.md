@@ -15,25 +15,22 @@ pip install -r requirements.txt
 
 ---
 
-## Run Training
+## Run
 
 ```bash
-python train.py
+snakemake -j 1
 ```
 
 This trains the model and saves:
-- `model.pkl` (trained model)
-- `test_data.pkl` (test set)
+- `results/model.pkl` (trained model)
+- `results/test_data.pkl` (test set)
+- `results/metrics.txt` (evaluation metrics)
 
 ---
 
-## Run Evaluation
+## Evaluation
 
-```bash
-python test.py
-```
-
-This loads the model and test data and prints:
+This loads the model and test data and writes the following into a txt file:
 - Accuracy  
 - Precision  
 - Recall  
