@@ -166,3 +166,5 @@ dataset/
 /data
 .snakemake/
 results/
+log/
+benchmarks/
